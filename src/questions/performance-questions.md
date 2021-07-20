@@ -29,4 +29,4 @@ Do not use scrolljacking
 
 * Explain the difference between layout, painting and compositing.
 
-
+https://www.alibabacloud.com/blog/front-end-performance-optimization-with-accelerated-compositing-part-1_594194
