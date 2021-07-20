@@ -11,7 +11,8 @@ var c = {
 		}
 
 		setname('Update again! The c obj');
-		console.log(this); // { "name": "Updated c obj" }  DID NOTHING! WHY?
+		console.log(this); 	// { "name": "Updated c obj" }  DID NOTHING! WHY?
+							// This was added to the global object, window
 	}
 }
 
