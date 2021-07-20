@@ -24,6 +24,8 @@ JavaScript event delegation is a simple technique by which you add a single even
 
 * Can you describe the main difference between the `Array.forEach()` loop and `Array.map()` methods and why you would pick one versus the other?
 
+Well, the forEach() method doesn't actually return anything (undefined). It simply calls a provided function on each element in your array. This callback is allowed to mutate the calling array. ... The difference is that map() utilizes return values and actually returns a new Array of the same size.
+
 * What's a typical use case for anonymous functions?
 
 * What's the difference between host objects and native objects?
@@ -139,3 +141,16 @@ console.log("hello" || "world")
 console.log("foo" && "bar")
 ```
 * Write an immediately invoked function expression (IIFE)
+
+
+
+
+
+
+
+
+
+
+
+
+https://rlynjb.medium.com/js-interview-question-what-s-a-typical-use-case-for-anonymous-functions-54cf547b2a0e
