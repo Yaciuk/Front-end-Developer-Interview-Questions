@@ -86,6 +86,8 @@ Well, the forEach() method doesn't actually return anything (undefined). It simp
 
 * What is the definition of a higher-order function?
 
+In mathematics and computer science, a higher-order function is a function that does at least one of the following: takes one or more functions as arguments, returns a function as its result. All other functions are first-order functions. In mathematics higher-order functions are also termed operators or functionals.
+
 * Can you give an example for destructuring an object or an array?
 
 * Can you give an example of generating a string with ES6 Template Literals?
@@ -119,6 +121,24 @@ What I needed to do was take parts of the URL and use them across different file
 Using ES5 syntax in Node means that the sharing of code between files is done with the 'require' and 'module. exports' statements. A 'module' in Javascript can be thought of as a container that holds related code which can then be exported to another file.
 
 * Why you might want to create static class members?
+
+The advantage of using a static class is that the compiler can check to make sure that no instance members are accidentally added. The compiler will guarantee that instances of this class cannot be created. Static classes are sealed and therefore cannot be inherited. They cannot inherit from any class except Object.
+
+class ClassWithStaticMethod {
+
+  static staticProperty = 'someValue';
+  static staticMethod() {
+    return 'static method has been called.';
+  }
+
+}
+
+console.log(ClassWithStaticMethod.staticProperty);
+// output: "someValue"
+console.log(ClassWithStaticMethod.staticMethod());
+// output: "static method has been called."
+
+The static keyword defines a static method or property for a class. Neither static methods nor static properties can be called on instances of the class. Instead, they're called on the class itself.
 
 * What is the difference between `while` and `do-while` loops in JavaScript?
 
