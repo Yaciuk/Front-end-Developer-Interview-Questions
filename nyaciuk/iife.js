@@ -1,15 +1,27 @@
 // Immediately Invoked Function Expression (IIFE)
 
-var iife = function(mer) {
+var firstname = 'Nicole';
+
+(function(mer) {
+
+	var greeting = "inside iife: hi ";
+	console.log(greeting + 'mer')
+
+})(firstname);
+
+
+
+
+
+
+
+/*var iife = function(mer) {
 	//console.log('Cat says' + mer);
 
 	return 'Meow' + mer;
-}('Nicole');
+}('Nicole');*/
 
 
 // wrap funtion in () operator to get function expression
-// So not it assumes you are running this on 'the fly'
-
-(function(mer) {
-	return 'Meow' + mer;
-});
+// So not it assumes you are running this on 'the fly' when this line of code is executed
+// a function obj can be invoked
