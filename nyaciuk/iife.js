@@ -4,6 +4,7 @@ var firstname = 'Nicole';
 
 (function(mer) {
 
+	// not touching global env
 	var greeting = "inside iife: hi ";
 	console.log(greeting + 'mer')
 
