@@ -119,6 +119,18 @@ The same-origin policy is a critical security mechanism that restricts how a doc
 
 * What tools and techniques do you use debugging JavaScript code?
 
+The best JavaScript debugging tools for 2021 and beyond
+Developer tools in modern web browsers. Every modern browser has tools available within it to debug code. ...
+The hackable debug tool — debugger. ...
+Node. ...
+Postman for debugging requests and responses. ...
+ESLint. ...
+JS Bin. ...
+JSON Formatter and Validator. ...
+Webpack.
+
+https://raygun.com/learn/javascript-debugging-tools
+
 * Explain the difference between mutable and immutable objects.
 
   * What is an example of an immutable object in JavaScript?
@@ -133,13 +145,31 @@ The same-origin policy is a critical security mechanism that restricts how a doc
 
   * What is the difference between call stack and task queue?
 
+  So in short, a job queue is a queue of things to do (usually stored persistant) and a call stack is a stack of routines. A job would have variables assigned to it, and a call stack would be the abstract implementation. So a job could "call" a method from a call stack.
+
+  A call stack is a mechanism for an interpreter (like the JavaScript interpreter in a web browser) to keep track of its place in a script that calls multiple functions — what function is currently being run and what functions are called from within that function, etc.
+
+  A microtask is a short function which is executed after the function or program which created it exits and only if the JavaScript execution stack is empty, but before returning control to the event loop being used by the user agent to drive the script's execution environment.
+
 * What are the differences between variables created using `let`, `var` or `const`?
+
+var declarations are globally scoped or function scoped while let and const are block scoped. var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared. They are all hoisted to the top of their scope.
 
 * What are the differences between ES6 class and ES5 function constructors?
 
+ES6 class	ES5 Function Constructors
+ES6 class basically does the work of defining a new object and appending functions to its prototype.	ES5 Function constructors work and look the same but the main difference is observed when the developer uses the Inheritance property.
+They can be considered as the syntax base for constructor functions.	These can only be executed with the help of a new operator.
+ES6 class allows the developers to instantiate objects using the new operator.	ES5 function constructors focus on how the objects are instantiated.
+They also ensure the developer that this keyword which is basically used inside the class only refers to the object that is being created by the developer.	ES5 function constructor focus on implementing the reusable object creation code. Any function can be used as a constructor.
+
 * Can you offer a use case for the new arrow `=>` function syntax? How does this new syntax differ from other functions?
 
+https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/
+
 * What advantage is there for using the arrow syntax for a method in a constructor?
+
+Arrow functions are best for callbacks or methods like map, reduce, or forEach. You can read more about scopes on MDN. On a fundamental level, arrow functions are simply incapable of binding a value of this different from the value of this in their scope.
 
 * What is the definition of a higher-order function?
 
@@ -218,14 +248,6 @@ console.log("hello" || "world")
 console.log("foo" && "bar")
 ```
 * Write an immediately invoked function expression (IIFE)
-
-
-
-
-
-
-
-
 
 
 
