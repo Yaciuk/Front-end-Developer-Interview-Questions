@@ -2,6 +2,7 @@
 title: General Questions
 layout: layouts/page.njk
 permalink: /questions/general-questions/index.html
+https://h5bp.org/Front-end-Developer-Interview-Questions/
 ---
 
 * What did you learn yesterday/this week?
