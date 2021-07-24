@@ -10,9 +10,23 @@ JavaScript event delegation is a simple technique by which you add a single even
 
 * Explain how `this` works in JavaScript.
 
+this is a keyword in JavaScript that is a property of an execution context. Its main use is in functions and constructors.
+
+https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
+
   * Can you give an example of one of the ways that working with `this` has changed in ES6?
 
+  When es6 was released, it presented a wonderful new way to deal with the this keyword. It changed the this binding to a pattern called lexical scoping. The simplest way to describe lexical scoping is that the inner function (or any nested functions) have access to variables which are declared in it's outer scope.
+
+  https://codegainz.com/this-keyword-es5-vs-es6-functions-javascript/#:~:text=When%20es6%20was%20released%2C%20it,declared%20in%20it's%20outer%20scope.
+
 * Explain how prototypal inheritance works.
+
+Prototypical inheritance allows us to reuse the properties or methods from one JavaScript object to another through a reference pointer function. All JavaScript objects inherit properties and methods from a prototype: Date objects inherit from Date. prototype .
+
+One of the most important advantages of prototypal inheritance is that you can add new properties to prototypes after they are created. This allows you to add new methods to a prototype which will be automatically made available to all the objects which delegate to that prototype.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
@@ -59,11 +73,31 @@ Native Objects or Built-in Objects are standard built-in objects provided by Jav
 
 * Explain the difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
+A common interview question whose intent is to uncover whether a candidate really understands the difference between function declarations, invocations and constructors. Let’s take a look at each of these examples and break down what they are doing.
+
+function Person() {}
+Declares (instantiates) a named function in memory, but does not execute it. This function can be called at a later point with the code Person(); . An important not here is that declared functions are available for use even before they are declared (as long as they are eventually declared).
+
+var person = Person()
+Declares a new function, Person, invokes it and then assigns the return value to the variable person. Important to understand here is that the variable is first hoisted to the top of the current scope and then when the assignment is encountered in the flow of code, the function Person is run and the result assigned. Until that point, the value of person is undefined.
+
+var person = new Person()
+In this case, we have the introduction of the new keyword which means that Person is an object constructor function which returns a new object instance. So while person in the example above is the returned value of Person (a string, number or whatever), the value of person in this example is actually an object.
+
+Technically speaking, function Person(){} is just a normal function declaration. ... var person = Person() invokes the Person as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. https://trungk18.com/experience/different-between-function-person/#:~:text=Technically%20speaking%2C%20function%20Person(),just%20a%20normal%20function%20declaration.&text=var%20person%20%3D%20Person()%20invokes,be%20used%20as%20a%20constructor.
+
+
+
 * Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
 * Can you explain what `Function.call` and `Function.apply` do? What's the notable difference between the two?
 
+The difference is that call() takes the function arguments separately, and apply() takes the function arguments in an array. CALL : A function with argument provide individually. If you know the arguments to be passed or there are no argument to pass you can use call. https://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply#:~:text=The%20difference%20is%20that%20call,function%20arguments%20in%20an%20array.&text=CALL%20%3A%20A%20function%20with%20argument,pass%20you%20can%20use%20call.
+
 * Explain `Function.prototype.bind`.
+
+
+prototype. The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
 * What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -84,6 +118,9 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 }
 
 * Explain "hoisting".
+
+
+In JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution. Basically, it gives us an advantage that no matter where functions and variables are declared, they are moved to the top of their scope regardless of whether their scope is global or local. https://www.geeksforgeeks.org/javascript-hoisting/
 
 * Describe event bubbling.
 
@@ -107,15 +144,34 @@ Because it can break other things. Extending built-in types, such as Object or A
 
 * What is the difference between `==` and `===`?
 
+= is used for assigning values to a variable in JavaScript. == is used for comparison between two variables irrespective of the datatype of variable. === is used for comparision between two variables but this will check strict type, which means it will check datatype and compare two values.
+
 * Explain the same-origin policy with regards to JavaScript.
 
 The same-origin policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin. It helps isolate potentially malicious documents, reducing possible attack vectors.
 
 * Why is it called a Ternary operator, what does the word "Ternary" indicate?
 
+Ternary ?: is an operator that takes 3 arguments and defines a conditional expression. It is a one-lined shorthand for an if-then statement and is also called Ternary operator or Conditional operator. ... In JavaScript, conditional operators can be evaluated to an Expression, not just statement.
+
 * What is strict mode? What are some of the advantages/disadvantages of using it?
 
+what are the advantages and disadvantages to using it? If you put "use strict"; at the top of your code (or function), then the JS is evaluated in strict mode. Strict mode throws more errors and disables some features in an effort to make your code more robust, readable, and accurate.
+
 * What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+
+Advantages:
+
+Classes. Many (most?) transpiled languages give you classes, inheritance and sometimes interfaces. The common rebuttal to this is that it’s just syntax sugar and you’ve still got JS prototypical inheritance under the hood, but that misses the point: classes are always syntax sugar. A C++ compiler isn’t generating some magic OOP machine code, it is generating standard procedural assembly code. A transpiled language is just doing the same but emitting JS instead.
+Types. JS vague typing and type guessing (“inference”) is a menace with a large code base. Half the unit tests in existence are there to try and plug the inability of JS to allow you to define what you mean. Most transpiled languages fix this to one degree or another thereby giving you a lot of your test suite by default and eliminating bugs before they happen. This is really why TypeScript exists.
+Features: JS evolves quite slowly in terms of browser implementation. If you want to use ES6 features you need to transpile to ES5 anyway. TypeScript 2 is probably ES7+ in many ways. Other languages bring other features.
+Disadvantages:
+
+You’ll probably need webpack or gulp to automate all your transpiling and bundling.
+The number of developers familiar with what you are doing is smaller.
+Can’t think of another one offhand.
+Personally I use TypeScript for virtually everything. Occassionally ES6. I haven’t written regular ES5 for so long that I can’t even remember exactly what features are missing. The only time I see it is as Babel output.
+https://www.quora.com/What-are-some-of-the-advantages-disadvantages-of-writing-JavaScript-code-in-a-language-that-compiles-to-JavaScript
 
 * What tools and techniques do you use debugging JavaScript code?
 
