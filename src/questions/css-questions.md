@@ -39,6 +39,7 @@ permalink: /questions/css-questions/index.html
 * Can you explain the difference between px, em and rem as they relate to font sizing?
 * Can you give an example of a pseudo class? Can you provide an example use case for a pseudo class? 
 * What is the difference between a block level element and an inline element. Can you provide examples of each type of element?
+
 *Why is it so hard to center things in CSS?
 It’s not. Chances are you’re unwittingly making it very difficult for yourself.
 

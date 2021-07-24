@@ -144,3 +144,6 @@ Multiple graphical elements, which become the part of the page’s DOM tree.	Sin
 * What are empty elements in HTML ?
 
 An empty element is an element from HTML, SVG, or MathML that cannot have any child nodes (i.e., nested elements or text nodes). In HTML, using a closing tag on an empty element is usually invalid. ... For example, <input type="text"></input> is invalid HTML.
+
+
+Empty elements (also called self-closing or void elements) are not container tags — that means, you can not write <hr>some content</hr> or <br>some content</br> . A typical example of an empty element, is the <br> element, which represents a line break.
