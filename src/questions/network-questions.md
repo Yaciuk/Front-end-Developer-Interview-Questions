@@ -171,3 +171,17 @@ A DNS Prefetch is a resource hint to make a DNS lookup for a domain the browser 
 A CDN can ensure that a network has a high data threshold. A large number of users can thus access the network at the same time without delays. By enabling a high traffic flow, CDN allows people from all over the world to access your website simultaneously.
 
 https://www.colocationamerica.com/blog/cdn-advantages-and-disadvantages#:~:text=A%20CDN%20can%20ensure%20that,to%20access%20your%20website%20simultaneously.
+
+
+
+
+
+Docker Basic Interview Questions
+https://www.interviewbit.com/docker-interview-questions/
+
+Can you tell something about docker container? ...
+What are docker images? ...
+What is a DockerFile? ...
+Can you tell what is the functionality of a hypervisor? ...
+What can you tell about Docker Compose? ...
+Can you tell something about docker namespace?
