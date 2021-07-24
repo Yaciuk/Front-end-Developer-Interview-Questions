@@ -39,3 +39,17 @@ permalink: /questions/css-questions/index.html
 * Can you explain the difference between px, em and rem as they relate to font sizing?
 * Can you give an example of a pseudo class? Can you provide an example use case for a pseudo class? 
 * What is the difference between a block level element and an inline element. Can you provide examples of each type of element?
+*Why is it so hard to center things in CSS?
+It’s not. Chances are you’re unwittingly making it very difficult for yourself.
+
+In any case, be sure to avoid ‘floats’ in CSS and that anything that you wish to center is an inline-block element (this applies to both horizontal and vertical centering).
+
+‘Floats’ in CSS - any element with a ‘float’ property whose value is either left or right - break the natural flow of the document. By default, elements will always flow left-to-right. Floating an element to the right will remove that element from the natural flow of the document and often therefore has some tendency to cause various problems with regards to how certain elements are positioned.
+
+See Centering in CSS: A Complete Guide | CSS-Tricks for some popular solutions for centering both horizontally and vertically.
+
+Many developers opt for, having experienced these unintended side-effects - such as elements that are not floated appearing next to elements that are - a ‘clearfix’ solution to combat this problem. You can see an example of this here. I do not recommend this solution and, to be clear, this is evidently an issue that can be completely avoided by opting not to use floats in the first place (while there may be minor exceptions, I am personally yet to find a use for floats in my projects).
+
+Nowadays there are a myriad of possible solutions, many of which were created solely to make it much, much easier to do rather trivial things such as center an element vertically, etc. Don’t be tempted, however, to opt for a more modern solution (such as Flexbox, CSS Transforms or using Javascript to calculate the intended positions of certain elements) without having already attempted a simpler method first (again - refer to the article above entitled ‘Centering in CSS’.)
+
+TLDR; it’s not difficult. For the most part, you simply need to ensure that all immediate children are inline-block elements, and that you align the text center on the containing element.
