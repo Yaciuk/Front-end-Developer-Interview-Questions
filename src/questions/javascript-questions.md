@@ -189,15 +189,115 @@ https://raygun.com/learn/javascript-debugging-tools
 
 * Explain the difference between mutable and immutable objects.
 
+So what are mutable and immutable types in JavaScript? Mutable objects are objects whose value can change once created, while immutable objects are those whose value cannot change once created.
+
   * What is an example of an immutable object in JavaScript?
+
+
+In JavaScript, string and numbers are immutable data types. If that feels strange, here is an example to demonstrate why we call them immutable. x += 1; Numbers, for instance, are immutable because you can't change its value.
 
   * What are the pros and cons of immutability?
 
+  Why Is Immutability Important?
+If you’ve been actively using frontend libraries like React, Vue, or a state management library like Redux, you might have come across warnings that say you shouldn’t mutate the state. Keeping the state immutable can help you in terms of performance, predictivity and better mutation tracking.
+
+Predictability
+For any medium-sized application, there will be state  —  a lot of it  —  and asynchronous actions updating that state. The state of the app will be significantly different from the initial state after the end user starts using it. Mutation hides changes that result in side effects which in turn makes it hard to debug and find bugs. By keeping your structures immutable, you’ll be able to predict what’s in the state at any given time and you can rest assured that there won’t be any nasty side effects.
+
+Tracking Mutations
+WIth immutable entities, you can see the changes that happen to these objects as a chain of events. This is because the variables have new references which are easier to track compared to existing variables. This can particularly help you with debugging your code and building better concurrent applications. There are event debuggers that help you replay DOM events with video playbacks that works entirely based on tracking mutation.
+
+https://dzone.com/articles/immutability-in-javascriptwhy-and-when-should-you
+
   * How can you achieve immutability in your own code?
+
+  https://css-tricks.com/understanding-immutability-in-javascript/
+
+  Immutable data cannot change its structure or the data in it. It’s setting a value on a variable that cannot change, making that value a fact, or sort of like a source of truth — the same way a princess kisses a frog hoping it will turn into a handsome prince. Immutability says that frog will always be a frog.
+
+Objects and arrays, on the other hand, allow mutation, meaning the data structure can be changed. Kissing either of those frogs may indeed result in the transformation of a prince if we tell it to.
+
+Immutability in React
+In a typical React application, the state is an object. (Redux makes use of an immutable object as the basis of an application’s store.) React’s reconciliation process determines if a component should re-render or if it needs a way to keep track of the changes.
+
+In other words, if React can’t figure out that the state of a component has changed, then it will not not know to update the Virtual DOM.
+
+Immutability, when enforced, makes it possible to keep track of those changes. This allows React to compare the old state if an object with it’s new state and re-render the component based on that difference.
+
+This is why directly updating state in React is often discouraged:
+
+this.state.username = "jamesdoe";
+React will not be sure that the state has changed and is unable to re-render the component.
+
+Say we assign the value Kingsley to a variable called firstName:
+
+let firstName = "Kingsley";
+We can reassign a new value to the same variable,
+
+firstName = "John";
+This is possible because we used let. If we happen to use const instead like this:
+
+const lastName = "Silas";
+…we will get an error when we try to assign it to a new value;
+
+lastName = "Doe"
+// TypeError: Assignment to constant variable.
+That is not immutability.
+
+An important concept you’ll hear working with a framework, like React, is that mutating states is a bad idea. The same applies to props. Yet, it is important to know that immutability is not a React concept. React happens to make use of the idea of immutability when working with things like state and props.
+
+What the heck does that mean? That’s where we’re going to pick things up.
 
 * Explain the difference between synchronous and asynchronous functions.
 
+Synchronous JavaScript: As the name suggests synchronous means to be in a sequence, i.e. every statement of the code gets executed one by one. So, basically a statement has to wait for the earlier statement to get executed.
+Let us understand this with the help of an example.
+
+Example:
+
+<script>
+    document.write("Hi"); // First
+    document.write("<br>");
+  
+    document.write("Mayukh") ;// Second
+    document.write("<br>");
+      
+    document.write("How are you"); // Third
+</script>
+
+In the above code snippet, the first line of the code Hi will be logged first then the second line Mayukh will be logged and then after its completion, the third line would be logged How are you.
+So as we can see the codes work in a sequence. Every line of code waits for its previous one to get executed first and then it gets executed.
+
+Asynchronous JavaScript: Asynchronous code allows the program to be executed immediately where the synchronous code will block further execution of the remaining code until it finishes the current one. This may not look like a big problem but when you see it in a bigger picture you realize that it may lead to delaying the User Interface.
+
+
+
+Let us see the example how Asynchronous JavaScript runs.
+
+<script>
+    document.write("Hi");
+    document.write("<br>");
+  
+    setTimeout(() => {
+        document.write("Let us see what happens");
+    }, 2000);
+  
+    document.write("<br>");
+    document.write("End");
+    document.write("<br>");
+</script>
+
+https://www.geeksforgeeks.org/synchronous-and-asynchronous-in-javascript/
+
 * What is event loop?
+
+The event loop is the secret behind JavaScript's asynchronous programming. ... The event queue is responsible for sending new functions to the track for processing. It follows the queue data structure to maintain the correct sequence in which all operations should be sent for execution. https://www.educative.io/edpresso/what-is-an-event-loop-in-javascript#:~:text=The%20event%20loop%20is%20the%20secret%20behind%20JavaScript's%20asynchronous%20programming.&text=The%20event%20queue%20is%20responsible,should%20be%20sent%20for%20execution.
+
+
+JavaScript has a concurrency model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java. https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+
+A browser event loop is a thread started by the browser that is constantly scanning for and running different events, just like it sounds. As events occur they are put in the event queue and run in turn by the one event thread. https://stackoverflow.com/questions/5425863/what-is-a-browser-event-loop
 
   * What is the difference between call stack and task queue?
 
@@ -232,6 +332,8 @@ Arrow functions are best for callbacks or methods like map, reduce, or forEach. 
 In mathematics and computer science, a higher-order function is a function that does at least one of the following: takes one or more functions as arguments, returns a function as its result. All other functions are first-order functions. In mathematics higher-order functions are also termed operators or functionals.
 
 * Can you give an example for destructuring an object or an array?
+
+https://betterprogramming.pub/can-you-give-an-example-of-destructuring-an-object-or-array-cad590c333cb
 
 * Can you give an example of generating a string with ES6 Template Literals?
 
@@ -305,7 +407,16 @@ console.log("foo" && "bar")
 ```
 * Write an immediately invoked function expression (IIFE)
 
+What is IIFE es6?
+It is a JavaScript function that runs as soon as it defined. An IIFE (Immediately Invoked Function Expression) can be used for avoiding the variable hoisting from within the blocks. It allows the public access to methods while retaining the privacy for variables defined in the function.
 
+
+(function () { //write your js code here })(); So, the above is called IIFE. You can write all the functions and variables inside IIFE without worrying about polluting the global scope or conflict with other's JavaScript code which have functions or variables with same name.
+
+An Immediately-invoked Function Expression is a way to execute functions immediately, as soon as they are created. ... IIFEs are very useful because they don't pollute the global object, and they are a simple way to isolate variables declarations.
+
+
+The primary reason to use an IIFE is to obtain data privacy. Because JavaScript's var scopes variables to their containing function, any variables declared within the IIFE cannot be accessed by the outside world.
 
 
 https://rlynjb.medium.com/js-interview-question-what-s-a-typical-use-case-for-anonymous-functions-54cf547b2a0e
