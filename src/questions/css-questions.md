@@ -193,3 +193,11 @@ Many developers opt for, having experienced these unintended side-effects - such
 Nowadays there are a myriad of possible solutions, many of which were created solely to make it much, much easier to do rather trivial things such as center an element vertically, etc. Don’t be tempted, however, to opt for a more modern solution (such as Flexbox, CSS Transforms or using Javascript to calculate the intended positions of certain elements) without having already attempted a simpler method first (again - refer to the article above entitled ‘Centering in CSS’.)
 
 TLDR; it’s not difficult. For the most part, you simply need to ensure that all immediate children are inline-block elements, and that you align the text center on the containing element.
+
+
+
+
+
+BOOTSTRAP 5
+
+https://getbootstrap.com/docs/5.0/forms/checks-radios/
