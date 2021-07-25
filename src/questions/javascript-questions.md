@@ -145,6 +145,38 @@ this is a keyword in JavaScript that is a property of an execution context. Its 
 
   https://codegainz.com/this-keyword-es5-vs-es6-functions-javascript/#:~:text=When%20es6%20was%20released%2C%20it,declared%20in%20it's%20outer%20scope.
 
+* 4. New Binding : The last rule exists for this binding.The function that is called with new operator when the code new Foo(…) is executed, the following things happen:
+
+1- An empty object is created and referenced by this variable, inheriting the prototype of the function.
+
+2- Properties and methods are added to the object referenced by this.
+
+3- The newly created object referenced by this is returned at the end implicitly (if no other object was returned explicitly).
+
+function Foo() {        
+        
+	  // 1- create a new object using the object literal 
+		   var this = {};
+       
+
+	  // 2- add properties and methods 
+
+	    this.name = 'Osama';
+		this.say = function () {
+		return "I am " + this.name; 
+	   };
+
+	  // 3- 
+
+	  	return this;
+}
+
+var name = 'Ahmed';
+var result = new Foo();
+console.log(result.name);  //3 
+
+By calling Foo() with new in front of it, we’ve constructed a new object and set that new object as the this for the call of foo().
+
 * Explain how prototypal inheritance works.
 
 Prototypical inheritance allows us to reuse the properties or methods from one JavaScript object to another through a reference pointer function. All JavaScript objects inherit properties and methods from a prototype: Date objects inherit from Date. prototype .
