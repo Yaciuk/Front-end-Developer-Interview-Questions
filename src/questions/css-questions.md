@@ -201,3 +201,7 @@ TLDR; it’s not difficult. For the most part, you simply need to ensure that al
 BOOTSTRAP 5
 
 https://getbootstrap.com/docs/5.0/forms/checks-radios/
+
+
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
