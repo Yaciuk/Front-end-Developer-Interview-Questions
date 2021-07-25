@@ -111,40 +111,6 @@ greetPerson(); // Alex
 Now greetPerson function is a copy of greet but this will refer to the person object.
 So You can use bind to returns a function that you can later execute, but Call/apply use it when you need to call the function immediately.
 
-
-
-
-
-// Udemy.com, JS the werid parts by Anthony Alicia, video 37
-When an Execution Context (lexical env) is created there is a variable env, the outer env, and an automatically included JS object called this.  This can be different depending how the function itself is invoked.  This will change depends on how the function is called bc of where it is lexically and how it's called.
-
-// function statement / default binding
-function a() {
-	console.log(this);
-	// attached newvariable to this.newvariable which === Window.newvariable
-	this.newvariable = 'Yo';
-}
-
-console.log(newvariable);
-
-// function expression / default binding
-var b = function() {
-	console.log(this);
-}
-
-// this points to the global obj when a function is executed (3 ex cntxts, 3 this same address in memory)
-a(); b();
-
-// From https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
-this is a keyword in JavaScript that is a property of an execution context. Its main use is in functions and constructors.
-
-
-  * Can you give an example of one of the ways that working with `this` has changed in ES6?
-
-  When es6 was released, it presented a wonderful new way to deal with the this keyword. It changed the this binding to a pattern called lexical scoping. The simplest way to describe lexical scoping is that the inner function (or any nested functions) have access to variables which are declared in it's outer scope.
-
-  https://codegainz.com/this-keyword-es5-vs-es6-functions-javascript/#:~:text=When%20es6%20was%20released%2C%20it,declared%20in%20it's%20outer%20scope.
-
 * 4. New Binding : The last rule exists for this binding.The function that is called with new operator when the code new Foo(…) is executed, the following things happen:
 
 1- An empty object is created and referenced by this variable, inheriting the prototype of the function.
@@ -184,6 +150,44 @@ Prototypical inheritance allows us to reuse the properties or methods from one J
 One of the most important advantages of prototypal inheritance is that you can add new properties to prototypes after they are created. This allows you to add new methods to a prototype which will be automatically made available to all the objects which delegate to that prototype.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+Priority
+
+The highest priority has new Binding. Then explicit binding and implicit binding. The lowest priority has default binding.
+
+
+
+// Udemy.com, JS the werid parts by Anthony Alicia, video 37
+When an Execution Context (lexical env) is created there is a variable env, the outer env, and an automatically included JS object called this.  This can be different depending how the function itself is invoked.  This will change depends on how the function is called bc of where it is lexically and how it's called.
+
+// function statement / default binding
+function a() {
+	console.log(this);
+	// attached newvariable to this.newvariable which === Window.newvariable
+	this.newvariable = 'Yo';
+}
+
+console.log(newvariable);
+
+// function expression / default binding
+var b = function() {
+	console.log(this);
+}
+
+// this points to the global obj when a function is executed (3 ex cntxts, 3 this same address in memory)
+a(); b();
+
+// From https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
+this is a keyword in JavaScript that is a property of an execution context. Its main use is in functions and constructors.
+
+
+  * Can you give an example of one of the ways that working with `this` has changed in ES6?
+
+  When es6 was released, it presented a wonderful new way to deal with the this keyword. It changed the this binding to a pattern called lexical scoping. The simplest way to describe lexical scoping is that the inner function (or any nested functions) have access to variables which are declared in it's outer scope.
+
+  https://codegainz.com/this-keyword-es5-vs-es6-functions-javascript/#:~:text=When%20es6%20was%20released%2C%20it,declared%20in%20it's%20outer%20scope.
+
+
 
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
