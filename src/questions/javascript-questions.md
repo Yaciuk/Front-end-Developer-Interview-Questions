@@ -10,6 +10,8 @@ JavaScript event delegation is a simple technique by which you add a single even
 
 * Explain how `this` works in JavaScript.
 
+When an Execution Context (lexical env) is created there is a variable env, the outer env, and an automatically included JS object called this.  This can be different depending how the function itself is invoked.
+
 this is a keyword in JavaScript that is a property of an execution context. Its main use is in functions and constructors.
 
 https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
