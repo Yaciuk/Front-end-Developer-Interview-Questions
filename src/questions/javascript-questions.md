@@ -9,13 +9,135 @@ permalink: /questions/javascript-questions/index.html
 JavaScript event delegation is a simple technique by which you add a single event handler to a parent element in order to avoid having to add event handlers to multiple child elements.
 
 * Explain how `this` works in JavaScript.
+* Define the context that 'this' refers to below in each function.
 
-// JS the werid parts, video 37
-When an Execution Context (lexical env) is created there is a variable env, the outer env, and an automatically included JS object called this.  This can be different depending how the function itself is invoked.
+// Medium.com, Javascript ‘this’ Keyword, How it works?, Osama Elmashad https://medium.com/tech-tajawal/javascript-this-4-rules-7354abdb274c
 
+In JavaScript the value of this not refer to the function in which it is used or it’s scope but is determined mostly by the invocation context of function (context.function()) and where it is called.
+
+function foo(){
+	var a =2 ;
+	this.bar();
+}
+
+function bar (){
+	console.log(this.a);
+}
+
+// the invocation context of the function (window.foo()).
+
+foo();   //undefined
+
+As you see in above example this in foo function not refer to the lexical scope of the function. But refer to global scope because it’s the invocation context of the function (window.foo()).
+
+* There are 4 rules to understand 'this' in JS, and they all have to do with binding.
+
+1. Default Binding
+2. Implicit Binding
+3. Explicit Binding
+4. New Binding
+
+* 1. Default Binding : It’s the most common case of function calls the standalone function invocation like below example.
+
+* 2. Implicit Binding : In this case, The object that is standing before the dot is what this keyword will be bound to.
+
+function foo(){
+	console.log(this.a);
+}
+
+var obj = {
+	a:2,
+	foo:foo
+};
+
+obj.foo();  // 2 
+
+As you see above this will refer to the object obj so the value of this.a will equal 2.
+Noted: if you assign the obj.foo to a variable then this variable will reference to the function itself
+
+var john = {
+	name: 'John',
+	greet: function(person) {
+      console.log("Hi " + person +", my name is " + this.name);
+	}
+}
+
+john.greet("Mark");  // Hi Mark, my name is John
+
+var fx = john.greet;
+fx("Mark");   // Hi Mark, my name is  
+
+As we see when you call john.greet(“Mark”) this will refer to the john object so this.name will be John
+But after that when assignment var fx = john.greet;
+So fx will be a reference to the greet function itself so the default binding applies and this will refer to Window.
+
+* 3. Explicit Binding : In this case, you can force a function call to use a particular object for this binding, without putting a property function reference on the object. so we explicitly say to a function what object it should use for this — using functions such as call, apply and bind
+
+function greet() {
+	console.log(this.name);
+}
+
+var person = {
+	name:'Alex'
+}
+
+greet.call(person, arg1, arg2, arg3, ...); // Alex
+
+The apply function is similar to call with the difference that the function arguments are passed as an array.
+
+function greet() {
+	console.log(this.name);
+}
+
+var person = {
+	name:'Alex'
+}
+
+greet.apply(person, [args]); // Alex
+
+The bind function creates a new function that will act as the original function but with this predefined.
+
+function greet() {
+	console.log(this.name);
+}
+
+var person = {
+	name:'Alex'
+};
+
+var greetPerson = greet.bind(person); 
+greetPerson(); // Alex
+
+Now greetPerson function is a copy of greet but this will refer to the person object.
+So You can use bind to returns a function that you can later execute, but Call/apply use it when you need to call the function immediately.
+
+
+
+
+
+// Udemy.com, JS the werid parts by Anthony Alicia, video 37
+When an Execution Context (lexical env) is created there is a variable env, the outer env, and an automatically included JS object called this.  This can be different depending how the function itself is invoked.  This will change depends on how the function is called bc of where it is lexically and how it's called.
+
+// function statement / default binding
+function a() {
+	console.log(this);
+	// attached newvariable to this.newvariable which === Window.newvariable
+	this.newvariable = 'Yo';
+}
+
+console.log(newvariable);
+
+// function expression / default binding
+var b = function() {
+	console.log(this);
+}
+
+// this points to the global obj when a function is executed (3 ex cntxts, 3 this same address in memory)
+a(); b();
+
+// From https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
 this is a keyword in JavaScript that is a property of an execution context. Its main use is in functions and constructors.
 
-https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work
 
   * Can you give an example of one of the ways that working with `this` has changed in ES6?
 
