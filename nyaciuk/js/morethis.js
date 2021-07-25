@@ -1,53 +1,4 @@
-/* JS the weird parts */
-
-
-// function statement / default binding
-function a() {
-	console.log(this);
-	// attached newvariable to this.newvariable which === Window.newvariable
-	this.newvariable = 'Yo';
-}
-
-console.log(newvariable);
-
-// function expression / default binding
-var b = function() {
-	console.log(this);
-}
-
-// this points to the global obj when a function is executed (3 ex cntxts, 3 this same address in memory)
-a(); b();
-
-var c = {
-	name: 'c obj',
-	log: function() {
-		console.log(this);
-	}
-}
-
-c.log();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Medium 
+/* Medium */
 var john = {
 	name: 'John',
 	greet: function(person) {
@@ -59,13 +10,13 @@ john.greet("Mark");  // Hi Mark, my name is John
 
 var fx = john.greet;
 
-console.log(fx);*/
+console.log(fx);
 
 
 // when invoked, fx = greet memory space for this so via default binding the global/window execution/lex doesn't have name
-/*fx("Mark");   // Hi Mark, my name is  
+fx("Mark");   // Hi Mark, my name is  
 
-console.log(fx); */
+console.log(fx);
 
 /* As we see when you call john.greet(“Mark”) this will refer to the john object so this.name will be John
 But after that when assignment var fx = john.greet;
